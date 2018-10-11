@@ -9,7 +9,7 @@ import data from "./database.js"
 
 
 fetch("./database").then( (response) => {
-    response.body.json().then( (json) => {
+    response.json().then( (json) => {
 
       const store = createStore(rootReducer, json, devToolsEnhancer());
 
