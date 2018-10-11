@@ -1,8 +1,8 @@
-{
+export default {
     "todos": [
       {
         "id": 0,
-        "text": "sqcwcweewcw",
+        "text": "casetwo",
         "completed": false
       },
       {

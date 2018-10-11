@@ -5,13 +5,21 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import rootReducer from './reducers'
 import { devToolsEnhancer  } from 'redux-devtools-extension'
+import data from "./database.js"
 
 
-const store = createStore(rootReducer, devToolsEnhancer ());
+fetch("./database").then( (response) => {
+    response.body.json().then( (json) => {
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+      const store = createStore(rootReducer, json, devToolsEnhancer());
+
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+        document.getElementById('root')
+      )
+
+
+    })
+  })
