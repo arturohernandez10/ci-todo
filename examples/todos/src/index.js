@@ -4,8 +4,10 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import App from './components/App'
 import rootReducer from './reducers'
+import { devToolsEnhancer  } from 'redux-devtools-extension'
 
-const store = createStore(rootReducer)
+
+const store = createStore(rootReducer, devToolsEnhancer ());
 
 render(
   <Provider store={store}>
